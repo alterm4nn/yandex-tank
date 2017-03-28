@@ -374,10 +374,11 @@ class AbstractReader:
 
     def __append_sample(self, result, item):
         """ add single sample to aggregator buffer """
-        for check in item:
-            if check < 0:
-                self.log.error("Problem item: %s", item)
-                raise ValueError("One of the sample items has negative value")
+        # get rid of negative check
+	#for check in item:
+        #   if check < 0:
+        # 	self.log.error("Problem item: %s", item)
+        #	raise ValueError("One of the sample items has negative value")
 
         (marker, threads, overall_rt, http_code, net_code, sent_bytes,
          received_bytes, connect, send, latency, receive, accuracy) = item
